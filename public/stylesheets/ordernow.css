@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+.menu-container {
+    margin-top: 70px;
+    padding: 50px;
+    font-family: sans-serif;
+    /* max-width: 800px; */
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0.8px;
+}
+
+.menu-item {
+    border: var(--feature-color) solid 1.5px;
+    margin: 20px;
+    border-radius: 8px;
+    padding: 10px;
+    /* padding-right: 0; */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.menu-item img {
+    width: 30%;
+}
+
+.menu-text {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-text h3 {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.menu-text p {
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+.menu-text .price {
+  font-size: 0.9rem;
+}
+
+.menu-item .buttons {
+  font-size: 0.9rem;
+  align-self: center;
+  width: 70px;
+  border: solid 1px lightgray;
+  border-radius: 7px;
+  padding: 4px 7px;
+  padding-left: 10px;
+}
+
+.menu-item .buttons i {
+  cursor: pointer;
+  color: lightgray;
+}
+
+
+@media (min-width: 768px) {
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* justify-content: flex-end; */
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.ordernow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gotocart button {
+  background-color: var(--feature-color);
+	color: #fff;
+	border: 1px var(--feature-color) solid;
+	font-size: 14px;
+	font-family: 'Poppins', sans-serif;
+	letter-spacing: 2px;
+	padding: 10px 20px;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.gotocart button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 568px) {
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 5px 3px;
+    /* justify-content: flex-start; */
+  }
+
+  .menu-item img {
+    width: 100%;
+    padding: 3px;
+  }
+
+  .menu-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-item .item-titles {
+    width: 200px;
+  }
+
+  .menu-item .buttons {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,167 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+/* :root {
+    --nav-height: 8rem;
+} */
+
+:root {
+    /* --feature-color: #049ACB; */
+    --feature-color: #468bcc;
+}
+
+* {
+    box-sizing: border-box;   /* if we add any padding or border onto an element, it doesnt affect the width of it */
+    margin: 0;
+    padding: 0;
+    /* scroll-padding-top: 8rem; */
+}
+
+body {
+    font-family: 'Poppins', 'Quicksand', sans-serif;
+}
+
+.nav {
+    position: fixed;
+    background-color: var(--feature-color);
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all .3s ease;
+    color: #fff;
+    /* height: 8rem; */
+    transition: all .3s ease-in-out;
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    transition: all .3s ease-in-out;
+}
+
+/* .nav h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+} */
+
+.nav h1 a {
+    font-size: 2rem;
+    
+}
+.nav .nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    
+}
+
+.nav #toggler {
+    margin-right: 1rem;
+    padding: 7px 5px;
+    display: none;
+}
+
+.nav #toggler:hover {
+    cursor: pointer;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 7px 15px;
+    letter-spacing: 1px;
+    transition: all .3s ease-in-out;
+    font-size: 1rem;
+}
+
+.nav.active {
+    background-color: #EBF1F3;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all .3s ease-in-out;
+}
+
+.nav.active a {
+    color: var(--feature-color);
+    transition: all .3s ease-in-out;
+}
+
+.nav.active .container {
+    padding: 10px 0;
+}
+
+.nav.active #toggler {
+    padding: 1.5px 1px;
+    transition: all .3s ease-in-out;
+    color: var(--feature-color);
+}
+
+.nav a:hover {
+    /* color: #B1E4F5; */
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .nav .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav .nav-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 20px;
+        margin-top: 15px;
+    }
+
+    .nav .nav-items li {
+        padding: 8px 0;
+        font-size: 1.3rem;
+    }
+    
+    .nav #toggler {
+        display: flex;
+        position: absolute;
+        align-self: flex-end;
+        right: 2rem;
+        top: 1.5rem;
+    }
+    
+    .nav .fold {
+        display: none;
+    }
+    
+}
+
+.cart i {
+    font-size: 20px;
+}
+
+.cart .badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    /* -webkit-border-radius: 9px; */
+    /* -moz-border-radius: 9px; */
+    border-radius: 50%;
+}
+
+#cartCount {
+    font-size: 11px;
+    /* background: #2275c3; */
+    background-color: #6ca6d4;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: super;
+    margin-left: -10px; 
+    
+}
+
+
+
+    /* :focus */

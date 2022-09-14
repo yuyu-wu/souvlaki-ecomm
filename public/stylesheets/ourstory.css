@@ -1,0 +1,57 @@
+
+.story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-top: 70px; */
+    
+}
+
+.story img {
+    margin: auto;
+    margin-top: 10rem;
+    margin-bottom: 20px;
+    width: 80vw;
+}
+
+.story .text {
+    margin: 1rem auto;
+    width: 80vw;
+    letter-spacing: 1px;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.story h1 {
+    margin-bottom: 2rem;
+}
+
+.story p {
+    font-size: 0.9em;
+}
+
+@media (min-width: 576px) {
+    .story .text {
+        width: 490px;
+    }
+}
+
+@media (min-width: 768px) {
+    .story .text {
+        width: 550px;
+    }
+}
+
+@media (min-width: 992px) {
+    .story .text {
+        width: 700px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .story .text {
+        width: 800px;
+    }
+}
