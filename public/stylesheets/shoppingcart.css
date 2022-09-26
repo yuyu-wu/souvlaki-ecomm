@@ -94,9 +94,6 @@
     margin: 20px 2px;
     letter-spacing: 1px;
     cursor: pointer;
-}
-
-.ripple {
     background-color: var(--feature-color);
     color: #fff;
     border: 1px var(--feature-color) solid;
@@ -106,23 +103,6 @@
     position: relative;
     border-radius: 3px;
     overflow: hidden;
-}
-  
-.ripple .circle {
-    position: absolute;
-    background-color: #fff;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    animation: scale 0.5s ease-out;
-  }
-
-@keyframes scale {
-    to {
-      transform: translate(-50%, -50%) scale(3);
-      opacity: 0;
-    }
 }
 
 .no-items {

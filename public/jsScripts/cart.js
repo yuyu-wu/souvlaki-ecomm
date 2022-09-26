@@ -1,4 +1,3 @@
-
 const productsContainer = document.querySelector('.products-container')
 const total = document.querySelector('.total-price')
 
@@ -129,7 +128,7 @@ const totalPrice = () => {
         // console.log(total);
         total.innerHTML = `
         <h3 class="cart-total">Total: $${amount}</h3>
-        <button class="ripple checkout">Checkout</button>
+        <button class="checkout">Checkout</button>
         `
     } else return;
 }
