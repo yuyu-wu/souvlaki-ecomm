@@ -3,21 +3,19 @@ const total = document.querySelector('.total-price')
 
 let basket = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-let calculation = () => {
-    let cartCount = document.querySelector('#cartCount');
+const calculation = () => {
+    const cartCount = document.querySelector('#cartCount');
 
-    cartCount.innerHTML = basket.map(x => x.inCart).reduce((x, y) => x + y, 0);
+    cartCount.innerHTML = basket.map(item => item.inCart).reduce((x, y) => x + y, 0);
 }
 
 calculation();
 
 const generateCartPage = () => {
     if (basket.length) {
-        // console.log('basket not empty!')
-        return (productsContainer).innerHTML = basket.map(x => {
-            // console.log(x);
-            const {id, inCart} = x;
-            const search = products.find(y => y.id === id) || [];
+        return (productsContainer).innerHTML = basket.map(item => {
+            const {id, inCart} = item;
+            const search = products.find(searchedItem => searchedItem.id === id) || [];
             return `
                 <div class="cart-product">
                     <img src="${search.image}">
@@ -42,24 +40,22 @@ const generateCartPage = () => {
                     </div>
                 </div>
             `
-        }).join('')
+        }).join('');
     } else {
-        // console.log('basket is empty!')
         total.innerHTML = '';
         productsContainer.innerHTML = `
             <h3 class="no-items">There are no items in your shopping cart</h3>
             <a href="/ordernow"><button class="start-to-order">Start to Order</button></a>
         `
-
     }
 }
 
 generateCartPage();
 
 const increment = (id) => {
-    let selectedProduct = id;
-    let search = basket.find(x => x.id === selectedProduct.id)
-    if (search === undefined) {
+    const selectedProduct = id;
+    const search = basket.find(item => item.id === selectedProduct.id)
+    if (!search) {
         basket.push({
             id: selectedProduct.id,
             inCart: 1
@@ -67,17 +63,16 @@ const increment = (id) => {
     } else {
         search.inCart += 1;
     }
-    // console.log(basket);
-    generateCartPage();  // so when we increment the item amount, the page will rerender, the inCart * seacth.price will work
 
+    generateCartPage();  // so when we increment the item amount, the page will rerender, the inCart * search.price will work
     localStorage.setItem('cartItems', JSON.stringify(basket));
 
     update(selectedProduct.id);
 }
 
 const decrement = (id) => {
-    let selectedProduct = id;
-    let search = basket.find(x => x.id === selectedProduct.id)
+    const selectedProduct = id;
+    const search = basket.find(item => item.id === selectedProduct.id);
 
     if (!search) {
         return;
@@ -86,21 +81,20 @@ const decrement = (id) => {
     } else {
         search.inCart -= 1;
     }
-    // console.log(basket);
+
     update(selectedProduct.id);
 
-    basket = basket.filter(x => x.inCart !== 0);
+    basket = basket.filter(item => item.inCart !== 0);
 
     generateCartPage();
     localStorage.setItem('cartItems', JSON.stringify(basket));
 }
 
 const update = (id) => {
-    // console.log(id)
-    let search = basket.find(x => x.id === id);
-    // console.log(search.inCart)
-    const selected = document.getElementById(id).innerHTML = search.inCart;;
-    // console.log(selected)
+    const search = basket.find(item => item.id === id);
+
+    document.getElementById(id).innerHTML = search.inCart;
+    
     calculation();
     totalPrice();
 }
@@ -108,8 +102,8 @@ const update = (id) => {
 const removeItem = (id) => {
     const selectedItem = id;
     // console.log(selectedItem)
-    // console.log('To be deleted!')
-    basket = basket.filter(x => x.id !== selectedItem.id);
+  
+    basket = basket.filter(item => item.id !== selectedItem.id);
     localStorage.setItem('cartItems', JSON.stringify(basket));
     totalPrice();
     generateCartPage();
@@ -118,17 +112,17 @@ const removeItem = (id) => {
 
 const totalPrice = () => {
     if (basket.length) {
-        const amount = basket.map(x => {
-            const {inCart, id} = x;
-            const search = products.find(y => y.id === id) || [];
+        const amount = basket.map(item => {
+            const {id, inCart} = item;
+            const search = products.find(searchedItem => searchedItem.id === id) || [];
 
             return inCart * search.price;
         }) 
         .reduce((x, y) => x + y, 0);
-        // console.log(total);
+
         total.innerHTML = `
-        <h3 class="cart-total">Total: $${amount}</h3>
-        <button class="checkout">Checkout</button>
+            <h3 class="cart-total">Total: $${amount}</h3>
+            <button class="checkout">Checkout</button>
         `
     } else return;
 }
