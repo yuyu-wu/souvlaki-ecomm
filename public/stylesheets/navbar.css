@@ -1,20 +1,14 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-/* :root {
-    --nav-height: 8rem;
-} */
-
 :root {
-    /* --feature-color: #049ACB; */
     --feature-color: #468bcc;
 }
 
 * {
-    box-sizing: border-box;   /* if we add any padding or border onto an element, it doesnt affect the width of it */
+    box-sizing: border-box;   
     margin: 0;
     padding: 0;
-    /* scroll-padding-top: 8rem; */
 }
 
 body {
@@ -29,7 +23,6 @@ body {
     right: 0;
     transition: all .3s ease;
     color: #fff;
-    /* height: 8rem; */
     transition: all .3s ease-in-out;
 }
 
@@ -41,29 +34,22 @@ body {
     transition: all .3s ease-in-out;
 }
 
-/* .nav h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-} */
-
 .nav h1 a {
     font-size: 2rem;
-    
 }
+
 .nav .nav-items {
     display: flex;
     justify-content: center;
     align-items: center;
     list-style-type: none;
-    
 }
 
 .nav #toggler {
     margin-right: 1rem;
-    padding: 7px 5px;
+    padding: 7px 3px;
     display: none;
+    font-size: 1.3rem;
 }
 
 .nav #toggler:hover {
@@ -153,7 +139,6 @@ body {
 
 #cartCount {
     font-size: 11px;
-    /* background: #2275c3; */
     background-color: #6ca6d4;
     color: #fff;
     padding: 0 5px;
@@ -161,7 +146,3 @@ body {
     margin-left: -10px; 
     
 }
-
-
-
-    /* :focus */
