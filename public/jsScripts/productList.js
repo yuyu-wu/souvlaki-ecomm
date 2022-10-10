@@ -1,4 +1,4 @@
-let products = [
+const products = [
     
     {
         name: 'Lamb Pack',

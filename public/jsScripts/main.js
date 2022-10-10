@@ -1,19 +1,21 @@
 const menuContainer = document.querySelector('.menu-container');
-// console.log(menuContainer)
 
-
+// Array of items in shopping cart
 let basket = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-let generateMenuPage = () => {
+const generateMenuPage = () => {
     return (menuContainer.innerHTML = products.map(product => {
-        let {name, id, ingredients, price, image} = product;
-        // console.log(product.id)
-        let search = basket.find(x => x.id === id) || [];  
+        // Products in menu
+        const {name, id, ingredients, price, image} = product;
+        
+        // Check if the product is the product in the basket array
+        const search = basket.find(item => item.id === id) || [];  
+        
         return `
         <div class="menu-item" id="product-id-${id}">
             <img src="${image}" alt="">
             <div class="menu-text">
-                <div class="item-titles">
+                <div class="item-description">
                     <h3>${name}</h3>
                     <p>${ingredients}</p>
                 </div>
@@ -32,27 +34,12 @@ let generateMenuPage = () => {
 
 generateMenuPage();
 
-let increment = (id) => {
-    // // console.log(id);
-    // let selectedProduct = id[1];
-    // // console.log(selectedProduct)
-    // // console.log(selectedProduct.id)
-    // let search = basket.find((x) => x.id === selectedProduct.id);
-    
-    // if (search === undefined) {
-    //     basket.push({
-    //         id: selectedProduct.id,
-    //         inCart: 1
-    //     });
-    // } else {
-    //     search.inCart = search.inCart + 1;
-    // }
-    // console.log(basket);
-    // // update(selectedProduct.id);
+const increment = (id) => {
+    // console.log(id)
+    const selectedProduct = id;
+    const search = basket.find(item => item.id === selectedProduct.id);
 
-    let selectedProduct = id;
-    let search = basket.find(x => x.id === selectedProduct.id)
-    if (search === undefined) {
+    if (!search) {
         basket.push({
             id: selectedProduct.id,
             inCart: 1
@@ -60,16 +47,15 @@ let increment = (id) => {
     } else {
         search.inCart += 1;
     }
-    // console.log(basket);
 
     localStorage.setItem('cartItems', JSON.stringify(basket));
 
     update(selectedProduct.id);
 }
 
-let decrement = (id) => {
-    let selectedProduct = id;
-    let search = basket.find(x => x.id === selectedProduct.id)
+const decrement = (id) => {
+    const selectedProduct = id;
+    const search = basket.find(item => item.id === selectedProduct.id)
 
     if (!search) {
         return;
@@ -78,29 +64,27 @@ let decrement = (id) => {
     } else {
         search.inCart -= 1;
     }
-    // console.log(basket);
+
     update(selectedProduct.id);
 
-    basket = basket.filter(x => x.inCart !== 0);
+    // Remove product in the cart if its inCart number is zero
+    basket = basket.filter(item => item.inCart !== 0);
 
     localStorage.setItem('cartItems', JSON.stringify(basket));
 }
 
-let update = (id) => {
+const update = (id) => {
     // console.log(id)
-    let search = basket.find(x => x.id === id);
+    const search = basket.find(item => item.id === id);
     // console.log(search.inCart)
-    const selected = document.getElementById(id).innerHTML = search.inCart;;
-    // console.log(selected)
+    document.getElementById(id).innerHTML = search.inCart;;
     calculation();
 }
 
-let calculation = () => {
-    // console.log('calculation function running!')
-    let cartCount = document.querySelector('#cartCount')
-    // cartCount.innerHTML = 100;
-    // console.log(basket.map(x => x.inCart).reduce((x, y) => x + y, 0))
-    cartCount.innerHTML = basket.map(x => x.inCart).reduce((x, y) => x + y, 0);
+const calculation = () => {
+    const cartCount = document.querySelector('#cartCount')
+    // console.log(basket.map(item => item.inCart))
+    cartCount.innerHTML = basket.map(item => item.inCart).reduce((x, y) => x + y, 0);
 }
 
 calculation();
