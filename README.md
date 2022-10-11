@@ -6,6 +6,10 @@ This is a food store e-commerce site built with Express. It comes with the store
 
 - https://souvlakiapp.herokuapp.com/
 
+### Screenshots
+
+souvlaki-screenshot.png
+
 ### Built with
 
 - Node.js
