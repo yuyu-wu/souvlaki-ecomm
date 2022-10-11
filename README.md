@@ -8,7 +8,7 @@ This is a food store e-commerce site built with Express. It comes with the store
 
 ### Screenshots
 
-![Souvlaki app screenshot](/img/souvlaki-screenshot.png)
+![Souvlaki app screenshot](/public/img/souvlaki-screenshot.png)
 
 ### Built with
 
