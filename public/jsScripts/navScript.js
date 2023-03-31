@@ -1,11 +1,11 @@
-// toggler navbar menu
-const toggler = document.querySelector('#toggler')
+// Toggle navbar menu
+const toggler = document.querySelector('#toggler');
+const navItems = document.querySelector('.nav-items');
 toggler.addEventListener('click', () => {
-    const navItems = document.querySelector('.nav-items');
     navItems.classList.toggle('fold');
 })
 
-// scroll animation
+// Scroll animation
 const nav = document.querySelector('.nav')
 window.addEventListener('scroll', () => {
     if (window.scrollY > nav.offsetHeight + 150) {
@@ -14,6 +14,3 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('active')
     }
 })
-
-// get navbar height in css
-document.documentElement.style.setProperty('--nav-height', nav.offsetHeight)

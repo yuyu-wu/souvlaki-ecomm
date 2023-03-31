@@ -21,7 +21,6 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    transition: all .3s ease;
     color: #fff;
     transition: all .3s ease-in-out;
 }
@@ -87,7 +86,6 @@ body {
 }
 
 .nav a:hover {
-    /* color: #B1E4F5; */
     font-weight: bold;
 }
 
@@ -114,7 +112,6 @@ body {
     .nav #toggler {
         display: flex;
         position: absolute;
-        align-self: flex-end;
         right: 2rem;
         top: 1.5rem;
     }
@@ -129,20 +126,12 @@ body {
     font-size: 20px;
 }
 
-.cart .badge {
-    padding-left: 9px;
-    padding-right: 9px;
-    /* -webkit-border-radius: 9px; */
-    /* -moz-border-radius: 9px; */
-    border-radius: 50%;
-}
-
 #cartCount {
+    border-radius: 50%;
     font-size: 11px;
     background-color: #6ca6d4;
     color: #fff;
-    padding: 0 5px;
-    vertical-align: super;
+    padding: 0 5px 0 6px;
+    vertical-align: top;
     margin-left: -10px; 
-    
 }
