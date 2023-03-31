@@ -38,8 +38,6 @@ leftBtn.addEventListener('click', () => {
     setActiveDot();
 })
 
-
-
 function setActiveSlide() {
     slides.forEach((slide) => {
         slide.classList.remove('active')
